@@ -1,5 +1,7 @@
 'use strict'
 
-exports.test = () => {
-    console.log("Hello")
+const AuthPolicy = require('./authorization/AuthPolicy')
+
+exports = {
+    AuthPolicy
 }
