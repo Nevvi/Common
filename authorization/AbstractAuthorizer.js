@@ -13,7 +13,7 @@ module.exports = class {
         let token
 
         try {
-            const authToken = event.authorizationToken
+            const authToken = event.headers.Authorization || event.headers.authorization
             if (!authToken) throw new TokenNotFoundError()
 
             token = jwtDecode(authToken)
