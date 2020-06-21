@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Nevvi/Common/issues"
   },
-  "homepage": "https://github.com/Nevvi/Common#readme"
+  "homepage": "https://github.com/Nevvi/Common#readme",
+  "dependencies": {
+    "jwt-decode": "^2.2.0"
+  }
 }
