@@ -8,6 +8,6 @@ module.exports = class extends HttpClient {
     }
 
     async createUser(user) {
-        await this.invokePost('/v1/users', user)
+        await this.invokePost('/api/v1/users', user)
     }
 }
