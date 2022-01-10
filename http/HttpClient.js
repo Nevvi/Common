@@ -13,7 +13,9 @@ module.exports = class {
     async invokePost(url, body) {
         const token = await this.getApiToken()
         const headers = {Authorization: token}
-        await axios.post(`${this.baseUrl}${url}`, body, {headers})
+        const fullUrl = `${this.baseUrl}${url}`
+        console.log(`Making POST call to ${fullUrl}`)
+        await axios.post(fullUrl, body, {headers})
     }
 
     async getApiToken() {
