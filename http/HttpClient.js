@@ -10,12 +10,20 @@ module.exports = class {
         this.scopes = scopes
     }
 
+    async invokeGet(url) {
+        const token = await this.getApiToken()
+        const headers = {Authorization: token}
+        const fullUrl = `${this.baseUrl}${url}`
+        console.log(`Making GET call to ${fullUrl}`)
+        return await axios.get(fullUrl, {headers})
+    }
+
     async invokePost(url, body) {
         const token = await this.getApiToken()
         const headers = {Authorization: token}
         const fullUrl = `${this.baseUrl}${url}`
         console.log(`Making POST call to ${fullUrl}`)
-        await axios.post(fullUrl, body, {headers})
+        return await axios.post(fullUrl, body, {headers})
     }
 
     async getApiToken() {
