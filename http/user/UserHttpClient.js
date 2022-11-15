@@ -7,8 +7,8 @@ module.exports = class extends HttpClient {
         super(baseUrl, clientId, clientSecret, scopes)
     }
 
-    async getUserByPhoneNumber(phoneNumber) {
-        const response = await this.invokeGet(`/api/v1/users?phoneNumber=${encodeURIComponent(phoneNumber)}`)
+    async createUser(user) {
+        const response = await this.invokePost(`/api/v1/users`, user)
         return response.data
     }
 }
