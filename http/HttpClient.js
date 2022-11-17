@@ -12,7 +12,7 @@ module.exports = class {
 
     async invokeGet(url) {
         const token = await this.getApiToken()
-        const headers = {Authorization: token}
+        const headers = {Authorization: `Bearer ${token}`}
         const fullUrl = `${this.baseUrl}${url}`
         console.log(`Making GET call to ${fullUrl}`)
         return await axios.get(fullUrl, {headers})
@@ -20,10 +20,18 @@ module.exports = class {
 
     async invokePost(url, body) {
         const token = await this.getApiToken()
-        const headers = {Authorization: token}
+        const headers = {Authorization: `Bearer ${token}`}
         const fullUrl = `${this.baseUrl}${url}`
         console.log(`Making POST call to ${fullUrl}`)
         return await axios.post(fullUrl, body, {headers})
+    }
+
+    async invokePatch(url, body) {
+        const token = await this.getApiToken()
+        const headers = {Authorization: `Bearer ${token}`}
+        const fullUrl = `${this.baseUrl}${url}`
+        console.log(`Making PATCH call to ${fullUrl}`)
+        return await axios.patch(fullUrl, body, {headers})
     }
 
     async getApiToken() {
