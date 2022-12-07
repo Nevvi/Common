@@ -24,13 +24,15 @@ module.exports = class {
         // Generate the permissions/methods allowed to be accessed
         const policy = this.buildPolicy(token, event.methodArn)
         const userId = token['cognito:username']
+
         this.generatePermissions(policy, userId)
 
         // finally, build the policy
         const authResponse = policy.build();
 
-        // TODO - add context to the request that we parsed from token
-        authResponse.context = {}
+        authResponse.context = {
+            userId
+        }
 
         return authResponse
     }
