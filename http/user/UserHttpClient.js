@@ -11,4 +11,8 @@ module.exports = class extends HttpClient {
         const response = await this.invokePost(`/api/v1/users`, user)
         return response.data
     }
+
+    async updateUserContact(userId, contact) {
+        await this.invokePost(`/api/v1/users/${userId}/contact`, contact)
+    }
 }
