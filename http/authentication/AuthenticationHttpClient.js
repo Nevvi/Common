@@ -7,8 +7,8 @@ module.exports = class extends HttpClient {
         super(baseUrl, clientId, clientSecret, scopes)
     }
 
-    async updateUser(userId, phoneNumber) {
-        const response = await this.invokePatch(`/api/v1/users/${userId}`, {phoneNumber})
+    async updateUser(userId, email) {
+        const response = await this.invokePatch(`/api/v1/users/${userId}`, {email})
         return response.data
     }
 }
