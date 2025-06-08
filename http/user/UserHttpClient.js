@@ -3,8 +3,8 @@
 const HttpClient = require('../HttpClient')
 
 module.exports = class extends HttpClient {
-    constructor(baseUrl, clientId, clientSecret, scopes) {
-        super(baseUrl, clientId, clientSecret, scopes)
+    constructor(baseUrl, apiKey) {
+        super(baseUrl, apiKey)
     }
 
     async createUser(user) {
